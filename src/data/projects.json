@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "title": "School Campus Lighting",
+    "description": "Full exterior and interior lighting design for a secondary school campus, including classrooms, corridors, and sports facilities.",
+    "category": ["Schools", "Exterior lighting", "Interior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "2",
+    "title": "Modern Home Wiring & Lighting",
+    "description": "Complete electrical wiring and smart lighting design for a new-build family home with accent and task lighting.",
+    "category": ["Personal homes", "Interior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "3",
+    "title": "Boutique Hotel Lobby",
+    "description": "Ambient and feature lighting for a boutique hotel lobby and reception area to create a welcoming atmosphere.",
+    "category": ["Hotels & restaurants", "Interior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "4",
+    "title": "Restaurant Dining & Bar",
+    "description": "Layered lighting design for a fine-dining restaurant and bar, including dimmable zones and decorative pendants.",
+    "category": ["Hotels & restaurants", "Interior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "5",
+    "title": "High-End Club Interior",
+    "description": "Dynamic and programmable LED lighting for a high-end club interior, with mood scenes and event modes.",
+    "category": ["High-end clubs", "Interior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "6",
+    "title": "Villa Exterior & Garden",
+    "description": "Landscape and facade lighting for a private villa, including path lights, uplighting, and pool area.",
+    "category": ["Personal homes", "Exterior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "7",
+    "title": "University Library",
+    "description": "Energy-efficient LED lighting and daylight integration for a university library reading hall.",
+    "category": ["Schools", "Interior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "8",
+    "title": "Rooftop Bar & Terrace",
+    "description": "Exterior lighting for a rooftop bar and terrace with string lights, wall washers, and safe pathway lighting.",
+    "category": ["Hotels & restaurants", "Exterior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "9",
+    "title": "Nightclub VIP Section",
+    "description": "Premium lighting design for a nightclub VIP section with adjustable colour and intensity.",
+    "category": ["High-end clubs", "Interior lighting"],
+    "imageUrl": ""
+  },
+  {
+    "id": "10",
+    "title": "Family Home Kitchen & Living",
+    "description": "Wiring and lighting design for open-plan kitchen and living space with under-cabinet and recessed lights.",
+    "category": ["Personal homes", "Interior lighting"],
+    "imageUrl": ""
+  }
+]

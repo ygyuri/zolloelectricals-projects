@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-1: #0a0a0a;
+    --primary-2: #5c4033;
+    --secondary-1: #eab308;
+    --secondary-2: #22c55e;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-primary-1 text-white antialiased;
+  }
+}
