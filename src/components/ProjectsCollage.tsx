@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import projectsData from '@/data/projects.json';
+import projectsDataFallback from '@/data/projects.json';
 import type { Project } from '@/types/project';
 
 type LayoutId = 'grid' | 'masonry' | 'bento' | 'featured' | 'staggered';
@@ -66,7 +66,7 @@ function ProjectCard({
       custom={index}
       initial="hidden"
       animate="show"
-      className="group overflow-hidden rounded-2xl bg-primary-2/80 shadow-xl ring-1 ring-secondary-1/20"
+      className="group overflow-hidden rounded-2xl bg-card-bg shadow-xl ring-1 ring-white/10"
     >
       <div className={`relative overflow-hidden ${sizeClasses[size]}`}>
         {imgUrl ? (
@@ -78,16 +78,16 @@ function ProjectCard({
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-primary-2 text-secondary-1/60">
+          <div className="flex h-full w-full items-center justify-center bg-primary-1/80 text-accent-yellow/70">
             <span className="text-4xl">☀</span>
           </div>
         )}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-t from-primary-1/90 via-primary-1/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-0 bg-gradient-to-t from-primary-1/90 via-primary-1/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           initial={false}
         />
         <motion.div
-          className="absolute bottom-0 left-0 right-0 p-4 md:p-5 text-white"
+          className="absolute bottom-0 left-0 right-0 p-4 md:p-5"
           initial={false}
         >
           <h3 className="text-lg font-semibold leading-tight drop-shadow-md md:text-xl text-white">
@@ -105,7 +105,7 @@ function ProjectCard({
               {project.category.slice(0, 2).map((cat) => (
                 <span
                   key={cat}
-                  className="rounded-full bg-secondary-2/90 px-2 py-0.5 text-xs font-medium text-primary-1"
+                  className="rounded-full bg-accent-yellow/90 px-2 py-0.5 text-xs font-medium text-primary-1"
                 >
                   {cat}
                 </span>
@@ -120,11 +120,27 @@ function ProjectCard({
 
 export function ProjectsCollage() {
   const [layout, setLayout] = useState<LayoutId>('grid');
-  const projects: Project[] = projectsData as Project[];
+  const [projects, setProjects] = useState<Project[]>(projectsDataFallback as Project[]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/projects', { cache: 'no-store' })
+      .then((r) => r.ok ? r.json() : [])
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) setProjects(data);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <section className="bg-primary-1 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {loading && (
+          <div className="mb-8 text-center">
+            <p className="text-white/70">Loading projects…</p>
+          </div>
+        )}
         <motion.div
           className="mb-12 text-center"
           initial={{ opacity: 0, y: 12 }}
@@ -134,7 +150,7 @@ export function ProjectsCollage() {
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
             Our Projects
           </h1>
-          <p className="mt-4 text-lg text-primary-2/90 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
             Lighting design and electrical work for schools, homes, hotels, and high-end venues.
           </p>
         </motion.div>
@@ -151,8 +167,8 @@ export function ProjectsCollage() {
               onClick={() => setLayout(l.id)}
               className={`rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 ${
                 layout === l.id
-                  ? 'bg-secondary-1 text-primary-1 shadow-lg'
-                  : 'bg-primary-2/60 text-white hover:bg-primary-2 ring-1 ring-secondary-1/30'
+                  ? 'bg-accent-blue text-white shadow-lg hover:bg-accent-blue/90'
+                  : 'bg-white/10 text-white hover:bg-accent-blue ring-1 ring-white/20'
               }`}
             >
               <span className="mr-2 opacity-90">{l.icon}</span>

@@ -10,11 +10,14 @@ module.exports = {
       colors: {
         primary: {
           1: '#0a0a0a',
-          2: '#5c4033',
         },
-        secondary: {
-          1: '#eab308',
-          2: '#22c55e',
+        accent: {
+          blue: '#2563eb',
+          yellow: '#eab308',
+        },
+        card: {
+          bg: '#ffffff',
+          text: '#0a0a0a',
         },
       },
       fontFamily: {

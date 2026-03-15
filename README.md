@@ -40,7 +40,7 @@ This uploads Pexels-sourced images to your Cloudinary cloud and writes the resul
 4. **Environment variables**: Add any needed vars in the Vercel dashboard only (e.g. `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` if you use it). For static seed data + JSON, the app typically needs no Cloudinary env vars in Vercel; the upload script is run locally.
 5. Deploy. Note the Vercel URL (e.g. `zolloelectricals-projects.vercel.app`).
 
-## Proxy: zolloelectricals.com/projects/ → Vercel
+## Serve at zolloelectricals.com/projects/ (WordPress iframe)
 
 To serve this app at `https://zolloelectricals.com/projects/`:
 
